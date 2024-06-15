@@ -62,6 +62,11 @@ class TodoApp:
             self.button_frame, text="Complete Task", command=self.complete_task)
         self.complete_task_button.pack(side=tk.LEFT, padx=5)
 
+        self.undo_complete_task_button = tk.Button(
+            self.button_frame, text="Undo Complete", command=self.undo_complete_task)
+        self.undo_complete_task_button.pack(
+            expand=True, fill='x', side=tk.LEFT, padx=5)
+
         self.task_listbox = tk.Listbox(root, width=50, height=10)
         self.task_listbox.pack(pady=10)
 
@@ -77,6 +82,8 @@ class TodoApp:
             self.update_task_listbox()
             self.task_entry.delete(0, tk.END)
             self.save_tasks()
+        else:
+            messagebox.showinfo("Information", "Enter a task")
 
     def edit_task(self):
         """
@@ -114,6 +121,18 @@ class TodoApp:
         try:
             selected_task_index = self.task_listbox.curselection()[0]
             self.tasks[selected_task_index]["completed"] = True
+            self.update_task_listbox()
+            self.save_tasks()
+        except IndexError:
+            messagebox.showwarning("Warning", "No task selected")
+
+    def undo_complete_task(self):
+        """
+        Undo a selected task as having being completed and update the listbox.
+        """
+        try:
+            selected_task_index = self.task_listbox.curselection()[0]
+            self.tasks[selected_task_index]["completed"] = False
             self.update_task_listbox()
             self.save_tasks()
         except IndexError:
