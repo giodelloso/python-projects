@@ -31,9 +31,14 @@ class TodoApp:
         """
         self.root = root
         self.root.title("Todo List Application")
+        self.root.geometry('600x400')
+        self.root.minsize(420, 300)
 
         self.tasks = []
         self.load_tasks()
+
+        self.task_label = tk.Label(root, text='Enter your task:')
+        self.task_label.pack()
 
         self.task_entry = tk.Entry(root, width=50)
         self.task_entry.pack(pady=10)
