@@ -41,26 +41,28 @@ class TodoApp:
         self.task_label.pack()
 
         self.task_entry = tk.Entry(root, width=50)
-        self.task_entry.pack(pady=10)
+        self.task_entry.pack(fill="x", padx=10, pady=10)
 
         self.button_frame = tk.Frame(root)
-        self.button_frame.pack(pady=5)
+        self.button_frame.pack(fill='x', pady=5)
 
         self.add_task_button = tk.Button(
             self.button_frame, text="Add Task", command=self.add_task)
-        self.add_task_button.pack(side=tk.LEFT, padx=5)
+        self.add_task_button.pack(expand=True, fill='x', side=tk.LEFT, padx=5)
 
         self.edit_task_button = tk.Button(
             self.button_frame, text="Edit Task", command=self.edit_task)
-        self.edit_task_button.pack(side=tk.LEFT, padx=5)
+        self.edit_task_button.pack(expand=True, fill='x', side=tk.LEFT, padx=5)
 
         self.delete_task_button = tk.Button(
             self.button_frame, text="Delete Task", command=self.delete_task)
-        self.delete_task_button.pack(side=tk.LEFT, padx=5)
+        self.delete_task_button.pack(
+            expand=True, fill='x', side=tk.LEFT, padx=5)
 
         self.complete_task_button = tk.Button(
             self.button_frame, text="Complete Task", command=self.complete_task)
-        self.complete_task_button.pack(side=tk.LEFT, padx=5)
+        self.complete_task_button.pack(
+            expand=True, fill='x', side=tk.LEFT, padx=5)
 
         self.undo_complete_task_button = tk.Button(
             self.button_frame, text="Undo Complete", command=self.undo_complete_task)
@@ -68,7 +70,7 @@ class TodoApp:
             expand=True, fill='x', side=tk.LEFT, padx=5)
 
         self.task_listbox = tk.Listbox(root, width=50, height=10)
-        self.task_listbox.pack(pady=10)
+        self.task_listbox.pack(expand=True, fill='both', pady=10)
 
         self.update_task_listbox()
 
