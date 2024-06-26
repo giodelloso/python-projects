@@ -19,6 +19,8 @@ class TodoApp:
         delete_task_button (tk.Button): Button to delete selected task.
         complete_task_button (tk.Button): Button to mark selected task as
             completed.
+        uncomplete_task_button (tk.Button): Button to UNmark selected task
+            as completed
         task_listbox (tk.Listbox): Listbox to display tasks.
     """
 
