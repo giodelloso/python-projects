@@ -72,6 +72,8 @@ def show_weather():
 # GUI setup
 root = tk.Tk()
 root.title("Weather App (Australia)")
+root.geometry('300x200')
+root.minsize(300, 200)
 
 mainframe = ttk.Frame(root, padding="10")
 mainframe.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
@@ -90,5 +92,10 @@ weather_label.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E))
 
 for child in mainframe.winfo_children():
     child.grid_configure(padx=5, pady=5)
+
+# Configure grid weights for 'nicer' UX if expanding the window
+root.columnconfigure(0, weight=1)
+root.rowconfigure(0, weight=1)
+mainframe.columnconfigure(1, weight=1)  # City entry column
 
 root.mainloop()
