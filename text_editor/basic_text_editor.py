@@ -37,7 +37,7 @@ def save_file():
     window.title(f'Simple Text Editor - {filepath}')
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     window = tk.Tk()
     window.title('Simple Text Editor')
 
