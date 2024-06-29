@@ -70,32 +70,34 @@ def show_weather():
 
 
 # GUI setup
-root = tk.Tk()
-root.title("Weather App (Australia)")
-root.geometry('300x200')
-root.minsize(300, 200)
+if __name__ == '__main__':
+    root = tk.Tk()
+    root.title("Weather App (Australia)")
+    root.geometry('300x200')
+    root.minsize(300, 200)
 
-mainframe = ttk.Frame(root, padding="10")
-mainframe.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+    mainframe = ttk.Frame(root, padding="10")
+    mainframe.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-city_label = ttk.Label(mainframe, text="Enter City Name:")
-city_label.grid(row=0, column=0, sticky=tk.W)
+    city_label = ttk.Label(mainframe, text="Enter City Name:")
+    city_label.grid(row=0, column=0, sticky=tk.W)
 
-city_entry = ttk.Entry(mainframe, width=20)
-city_entry.grid(row=0, column=1, sticky=(tk.W, tk.E))
+    city_entry = ttk.Entry(mainframe, width=20)
+    city_entry.grid(row=0, column=1, sticky=(tk.W, tk.E))
 
-search_button = ttk.Button(mainframe, text="Get Weather", command=show_weather)
-search_button.grid(row=1, column=0, columnspan=2, pady=10)
+    search_button = ttk.Button(
+        mainframe, text="Get Weather", command=show_weather)
+    search_button.grid(row=1, column=0, columnspan=2, pady=10)
 
-weather_label = ttk.Label(mainframe, text="", justify="left")
-weather_label.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E))
+    weather_label = ttk.Label(mainframe, text="", justify="left")
+    weather_label.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E))
 
-for child in mainframe.winfo_children():
-    child.grid_configure(padx=5, pady=5)
+    for child in mainframe.winfo_children():
+        child.grid_configure(padx=5, pady=5)
 
-# Configure grid weights for 'nicer' UX if expanding the window
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
-mainframe.columnconfigure(1, weight=1)  # City entry column
+    # Configure grid weights for 'nicer' UX if expanding the window
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
+    mainframe.columnconfigure(1, weight=1)  # City entry column
 
-root.mainloop()
+    root.mainloop()
