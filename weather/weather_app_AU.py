@@ -32,7 +32,7 @@ def get_weather(city):
              'City not found.'
     """
     # api_key = 'your-hardcoded-key-comment-out-the-next-2-lines'
-    api_key_file = os.getenv('JD_OPENWEATHER_API_KEY')
+    api_key_file = os.getenv('OPENWEATHER_API_KEY_FILE')
     api_key = get_api_key(api_key_file)
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "q=" + city + ",AU&appid=" + api_key + "&units=metric"
